@@ -4,27 +4,27 @@ import java.util.Random;
 public class RPS {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		String rps;
+		String rps = "";
 		Random oneToThree = new Random();
 		int counter = 0;
 		int random = 0;
 		int counter2 = 0;
 		int counter3 = 0;
 		int userPick;
+		System.out.println("Welcome to Rock Paper Sissors");
 		do {
 		do {
-			if (counter >= 1) {
+			if (!rps.equalsIgnoreCase("r") && !rps.equalsIgnoreCase("p") && !rps.equalsIgnoreCase("s")) {
 				System.out.println("You entered an invalid input, please try again.");
 			}
-			System.out.println("Welcome to Rock Paper Siccsors. \n Type below R for rock P for Paper and S for Siccors.");
+			System.out.print("\n Type below R for rock P for Paper and S for Siccors.\n");
 			rps = input.nextLine();
-			counter++;
-		}  while(!rps.equalsIgnoreCase("r")|| !rps.equalsIgnoreCase("p") || !rps.equalsIgnoreCase("s"));
+		}  while(!rps.equalsIgnoreCase("r") && !rps.equalsIgnoreCase("p") && !rps.equalsIgnoreCase("s")); 
 
 		if (rps.equalsIgnoreCase("r")) {
 			userPick = 0; // 0 = rock
 		}
-		else if (rps.equalsIgnoreCase("s")) {
+		else if (rps.equalsIgnoreCase("p")) {
 			userPick = 1; // 1 = Paper
 		}
 		else {
@@ -71,13 +71,14 @@ public class RPS {
 				counter2++;
 
 			}
-		} while (counter2 <= 2 || counter3 <= 2); 
+		} while (counter2 < 2 && counter3 < 2); 
+		
 		
 		if (counter2 == 2) {
-			System.out.println("You WIN");
+			System.out.println("You WIN the game!!");
 		}
 		else if (counter3 == 2) {
-			System.out.println("You LOSE");
+			System.out.println("You LOSE the game :(:(");
 		}
 
 
